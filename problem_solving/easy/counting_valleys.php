@@ -25,4 +25,10 @@ function countingValleys($n, $s) {
     return $valleys;
 }
 
-print_r(countingValleys(8, 'UDDDUDUU'));
+echo '<pre>';
+print_r([
+        '8, UDDDUDUU' => countingValleys(8, 'UDDDUDUU'), // Expected 1
+        '12, DDUUDDUDUUUD' => countingValleys(12, 'DDUUDDUDUUUD'), // Expected 2
+        '30, DDUUDDUDUDUDDUDUUUDDDUDUUDUDUUUD' => countingValleys(30, 'DDUUDDUDUDUDDUDUUUDDDUDUUDUDUUUD'), // Expected 3
+        '22, DDUDDUUUUDDDUDDUDUUDUD' => countingValleys(22, 'DDUDDUUDUDDDUDDUDUUDUD')]); // Expected 0
+echo '</pre>';

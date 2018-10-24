@@ -35,14 +35,14 @@ function minimumBribes($q) {
 }
 
 echo '<pre>';
-print_r(['[2,1,5,3,4]' => minimumBribes([2,1,5,3,4])]);
+print_r(['[2,1,5,3,4]' => minimumBribes([2,1,5,3,4])]);             // Expected 3
 echo '</pre>';
 echo '<pre>';
-print_r(['[2,5,3,1,4]' => minimumBribes([2,5,3,1,4])]);
+print_r(['[2,5,3,1,4]' => minimumBribes([2,5,3,1,4])]);             // Expected Too chaotic
 echo '</pre>';
 echo '<pre>';
-print_r(['[5,1,2,3,7,8,6,4]' => minimumBribes([5,1,2,3,7,8,6,4])]);
+print_r(['[5,1,2,3,7,8,6,4]' => minimumBribes([5,1,2,3,7,8,6,4])]); // Expected Too chaotic
 echo '</pre>';
 echo '<pre>';
-print_r(['[1,2,5,3,7,8,6,4]' => minimumBribes([1,2,5,3,7,8,6,4])]);
+print_r(['[1,2,5,3,7,8,6,4]' => minimumBribes([1,2,5,3,7,8,6,4])]); // Expected 7
 echo '</pre>';
