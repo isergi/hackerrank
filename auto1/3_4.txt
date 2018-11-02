@@ -1,0 +1,249 @@
+https://app.apiary.io/isergi/editor
+
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# isergi 
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Lots Manipulation /lots/add [/lots/add]
+### Create a New Lot [POST]
+
++ Request (application/json)
+
+        {
+            "name": "Red Dacca",
+            "planted" : "Costa Rica",
+            "harvested" : "2018-06-27",
+            "weight"    : 1500
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /lots/add
+
+    + Body
+
+            {
+                "id" : 969,
+                "name": "Red Dacca",
+                "planted" : "Costa Rica",
+                "harvested" : "2018-06-27",
+                "weight"    : 1500,
+                "created_by": 899,
+                "created_at": "2018-11-01T11:12:13.620Z"
+            }
+### Try to create a New Lot with wrong params [POST]
+
++ Request (application/json)
+
+        {
+            "name": "Red Dacca",
+            "planted" : "Costa Rica",
+            "harvested" : "2018-06-27",
+            "weight"    : 500
+        }
+
++ Response 405 (application/json)
+
+    + Headers
+
+            Location: /lots/add1
+
+    + Body
+
+            {
+                "errors" : {
+                    "weight" : "Min value 1000",
+                }
+            }
+## Lots Manipulation /lot/2 [/lot/2]
+### Start Lot [PUT]
+
++ Request (application/json)
+
+        {
+            "action" : "start",
+            "unit" : "kg",
+            "price" : 1.20
+        }
+
++ Response 204 (application/json)
+
+    + Headers
+
+            Location: /lot/2
+            
+### Bid Lot [PUT]
+
++ Request (application/json)
+
+        {
+            "action" : "bid",
+            "user_id" : 72,
+            "price" : 1.21
+        }
+
++ Response 204 (application/json)
+
+    + Headers
+
+            Location: /lot/bid/2
+ 
+### Delete Lot [DELETE]
+
++ Response 204 (application/json)
+
+    + Headers
+
+            Location: /lot/2
+
+            
+## Lots Information /lot/bids/2 [/lot/bids/2]
+### Bids of Lot [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "user_id": 72,
+                "price": 1.21,
+                "bid_at" : "2018-11-01T12:12:13.620Z"
+
+            }
+        ]
+
+
+
+-----------
+Answer here
+
+a) 
+Request: 
+    [POST] /lots/add
+    Headers: 
+        Location: /lots/add
+        Content-Type:application/json
+        Content-Length: 113
+    Body:
+        {
+            "name": "Red Dacca",
+            "planted": "Costa Rica",
+            "harvested": "2018-06-27",
+            "weight": 1500
+        }
+
+Response: 201
+    Headers:
+        Content-Type: application/json
+        Location: /lots/add
+    Body:
+        {
+            "id": 969,
+            "name": "Red Dacca",
+            "planted": "Costa Rica",
+            "harvested": "2018-06-27",
+            "weight": 1500,
+            "created_by": 899,
+            "created_at": "2018-11-01T11:12:13.620Z"
+        }
+
+b) 
+Request: 
+    [POST] /lots/add
+    Headers: 
+        Location: /lots/add
+        Content-Type:application/json
+        content-length:198
+    Body:
+        {
+            "name": "Red Dacca",
+            "planted" : "Costa Rica",
+            "harvested" : "2018-06-27",
+            "weight"    : 500
+        }
+
+Response: 405
+    Headers:
+        Content-Type:application/json
+        Location:/lots/add
+    Body:
+        {
+            "errors" : {
+                "weight" : "Min value 1000",
+            }
+        }
+
+c)
+Request: 
+    [PUT] /lot/969
+    Headers: 
+        Location: /lot/969
+        content-length:65
+    Body:
+        {
+            "start_at" : "2018-09-04",
+            "action": "start",
+            "unit": "kg",
+            "price": 1.2
+        }
+
+Response: 204
+    Headers:
+        Content-Type:application/json
+        Location:/lot/969
+
+d)
+Request: 
+    [PUT] /lot/969
+    Headers: 
+        Location: /lot/969
+        content-length:65
+    Body:
+        {
+            "action": "bid",
+            "user_id": 72,
+            "price": 1.21
+        }
+
+Response: 204
+    Headers:
+        Content-Type:application/json
+        Location:/lot/969
+
+e)
+Request: 
+    [GET] /lot/969
+    Headers: 
+        Location: /lot/969
+    Body:
+        {
+            "action": "bids"
+        }
+
+Response: 200
+    Headers:
+        Content-Type:application/json
+        Location:/lot/969
+    Body:
+        [
+            {
+                "user_id": 72,
+                "price": 1.21,
+                "bid_at": "2018-11-01T12:12:13.620Z"
+            }
+        ]
+
+f)
+Request: 
+    [DELETE] /lot/969
+    Headers: 
+        Location: /lot/969
+
+Response: 204
+    Headers:
+        Content-Type:application/json
+        Location:/lot/2
