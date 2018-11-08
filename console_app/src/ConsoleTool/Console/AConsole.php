@@ -25,7 +25,7 @@ abstract class AConsole {
     /**
      * Available commands for an implemented console class
      *
-     * $commandList = [
+     * $_commandList = [
      *  commandName => commandDescription,
      *  ...
      *  commandName => commandDescription
@@ -33,7 +33,7 @@ abstract class AConsole {
      * 
      * @var array
      */
-    public $commandList = [];
+    protected $_commandList = [];
 
     /**
      * Shows an information about an implemented console after instance of it.
@@ -59,7 +59,7 @@ abstract class AConsole {
      */
     public function getCommandClassName($command) {
         $className = null;
-        if (isset($this->commandList[ $command ])) {
+        if (isset($this->_commandList[ $command ])) {
             $className = ucfirst(strtolower($command));
         }
 

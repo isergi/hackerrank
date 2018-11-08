@@ -16,7 +16,7 @@ class ConsoleWorker extends AConsole {
     /**
      * Available commands for an implemented console class
      *
-     * $commandList = [
+     * $_commandList = [
      *  commandName => commandDescription,
      *  ...
      *  commandName => commandDescription
@@ -24,7 +24,7 @@ class ConsoleWorker extends AConsole {
      * 
      * @var array
      */
-    public $commandList = [
+    protected $_commandList = [
         'help'    => 'Use this command for each command you want to know more',
         'quit'    => 'Use this command to close the application',
         'salary'  => 'Get an information about dates when you should pay salary or bonus',
@@ -38,7 +38,7 @@ class ConsoleWorker extends AConsole {
      */
     public function showHowToUse() {
         echo 'Available commands:', PHP_EOL;
-        foreach ($this->commandList as $command => $comandInfo) {
+        foreach ($this->_commandList as $command => $comandInfo) {
             echo '[', $command, "]: ", $comandInfo, PHP_EOL;
         }
         echo PHP_EOL;
