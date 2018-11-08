@@ -67,3 +67,21 @@ Time: 52 ms, Memory: 4.00MB
 
 OK (2 tests, 4 assertions)
 ```
+
+# Troubleshooting
+
+## Unable to start console tool
+
+**Symptom**: 
+
+```bash
+$ ./c-tool quit
+permission denied: ./c-tool
+```
+
+**Solution**:
+
+Try to set **+x** permission to the **c-tool**
+```bash
+$ chmod +x ./c-tool
+```
