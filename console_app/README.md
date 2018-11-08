@@ -4,7 +4,7 @@ Console Tool for PHP
 This tool just shows an architecture of a simple project.
 
 Please lets me explain why I didn't use more professional way for the console tool application. I mean "Symphony/Console".
-Because if you tell me this "to showcase your skills and demonstrate a variety of PHP language features and practices, such as OO, as a professional software engineer.". In this way, I would not show you a variety of PHP language features and practices that I know, and also I would not show you my OO knowledge. 
+Because you said me this "to showcase your skills and demonstrate a variety of PHP language features and practices, such as OO, as a professional software engineer.". In this way, I would not show you a variety of PHP language features and practices that I know, and also I would not show you my OO knowledge. 
 For this reason, I decided to make my own light "console tool application" to show you practices and skills.
 
 Anyway, I used "composer" for several components to show you "a professional software engineer".
@@ -31,7 +31,13 @@ composer install
 
 To show available commands for the console use command:
 ```bash
-php index.php
+./c-tool
+```
+You can use availabe command for **c-tool**:
+```bash
+./c-tool help
+./c-tool math help
+./c-tool math sum numbers=3,4,6,1
 ```
 
 ## Testing

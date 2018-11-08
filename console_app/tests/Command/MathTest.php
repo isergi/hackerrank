@@ -19,8 +19,6 @@ class MathTest extends TestCase
         $out = ob_get_contents();
         ob_end_clean();
 
-
-
         $this->assertEquals('Result: 3', trim($out));
     }
 
