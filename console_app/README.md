@@ -74,6 +74,7 @@ OK (2 tests, 4 assertions)
 
 **Symptom**: 
 
+You get a "permission denided" message
 ```bash
 $ ./c-tool quit
 permission denied: ./c-tool
