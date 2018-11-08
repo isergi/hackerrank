@@ -3,11 +3,7 @@ Console Tool for PHP
 
 This tool just shows the architecture of a project.
 
-This tool just shows the architecture of a project.
-
-Please lets me explain why I didn't use more professional way for the console tool application. I mean "Symphony/Console". 
-Because if you tell me something like that "showcase your skills and demonstrate a variety of PHP language features and practices, such as OO, as a professional software engineer.", I would not show you a variety of PHP language features and practices that I know, and also I would not show you my OO knowledge it this way. 
-For this reason, I decided to make my own light "console tool application" to show you practices and skills.
+Please lets me explain why I didn't use more professional way for the console tool application. I mean "Symphony/Console". Because if you tell me something like that "showcase your skills and demonstrate a variety of PHP language features and practices, such as OO, as a professional software engineer.", I would not show you a variety of PHP language features and practices that I know, and also I would not show you my OO knowledge it this way. For this reason, I decided to make my own light "console tool application" to show you practices and skills.
 
 Anyway, I used "composer" for several components to show you "a professional software engineer".
 
