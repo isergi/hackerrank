@@ -3,7 +3,7 @@
 
 define('BASE_DIR', __DIR__);
 
-require_once BASE_DIR . '/vendor/autoload.php';
+require_once 'vendor/autoload.php';     
 
 use ConsoleTool\Console\ConsoleWorker;
 use ConsoleTool\Exceptions\CommandException;

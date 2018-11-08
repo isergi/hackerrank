@@ -8,8 +8,10 @@
 		"email": "mail@isergi.ru"
 	}],
 	"scripts": {
-		"test": "./vendor/bin/phpunit --bootstrap tests/bootstrap.php tests/",
-		"test-verbose": "./vendor/bin/phpunit --bootstrap tests/bootstrap.php tests/ --verbose"
+		"build": [
+            "php -dphar.readonly=0 tools/phar.php",
+            "chmod +x bin/c-tool.phar"
+        ]
 	},
 	"require": {
 		"php": ">=5.6.0"

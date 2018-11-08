@@ -7,9 +7,11 @@ Please lets me explain why I didn't use more professional way for the console to
 
 Anyway, I used "composer" for several components to show you "a professional software engineer".
 
+For the fast usage, you can use **./bin/c-tool.phar** independent script.
+
 ## Requirements
 
-  - PHP 5.4+
+  - PHP 5.6+
   - PHP Composer
 
 ## Installation and Usage
@@ -31,12 +33,20 @@ To show available commands for the console use command:
 ```bash
 ./c-tool
 ```
+
 You can use availabe command for **c-tool**:
 ```bash
 ./c-tool help
 ./c-tool math help
 ./c-tool math sum numbers=3,4,6,1
 ```
+### Build an independent running script
+
+You can build an independent script and use it every location on your or another computer:
+```bash
+composer build
+```
+After that, you can find an independent script in folder **./bin/c-tool.phar** and use it independently from composer or project code sources.
 
 ## Testing
 
