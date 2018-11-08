@@ -5,19 +5,15 @@ define('BASE_DIR', __DIR__);
 
 require_once 'vendor/autoload.php';     
 
-use ConsoleTool\Console\ConsoleWorker;
+use ConsoleTool\Console\SalaryCli;
 use ConsoleTool\Exceptions\CommandException;
 
-$console = new ConsoleWorker();
+$console = new SalaryCli();
 
-$incomeLine = $argv;
-array_shift($incomeLine);
-
-if ($incomeLine) {
-    try {
-        $console->setCommand($incomeLine);
-        $console->run();
-    } catch (CommandException $e){
-        echo 'ERROR: ', $e->getMessage(), PHP_EOL;
-    }
+try {
+    $console->init(array_slice($argv, 1));
+    $console->run();
+} catch (CommandException $e){
+    echo $e->getMessage();
+    exit($e->getCode());
 }

@@ -18,6 +18,6 @@ class HelpTest extends TestCase
         $out = ob_get_contents();
         ob_end_clean();
 
-        $this->assertEquals('Use "help" command for each comman you want to know more', trim($out));
+        $this->assertEquals('Use "help" command for each command you want to know more', trim($out));
     }
 }

@@ -1,13 +1,13 @@
 Console Tool for PHP
 ============================================================
 
-This tool just shows the architecture of a project.
+## Read first
 
-Please lets me explain why I didn't use more professional way for the console tool application. I mean "Symphony/Console". Because if you tell me something like that "showcase your skills and demonstrate a variety of PHP language features and practices, such as OO, as a professional software engineer.", I would not show you a variety of PHP language features and practices that I know, and also I would not show you my OO knowledge it this way. For this reason, I decided to make my own light "console tool application" to show you practices and skills.
+Lets me explain why I didn't use a "Symphony/Console" library. Because if you tell me something like that  "showcase your skills and demonstrate a variety of PHP language features and practices, such as OO, as a professional software engineer.", in this way I would not show you a variety of PHP language features and practices that I know, and also I would not show you my OO knowledge it this way. For this reason, I decided to make my own light "console tool application" to show you practices and skills.
 
-Anyway, I used "composer" for several components to show you "a professional software engineer".
+Anyway, I used "composer" for several components to show you "a professional software engineer" skills.
 
-For the fast usage, you can use **./bin/c-tool.phar** independent script.
+For a quick usage you can use `./bin/c-tool.phar` independent script.
 
 ## Requirements
 
@@ -16,24 +16,17 @@ For the fast usage, you can use **./bin/c-tool.phar** independent script.
 
 ## Installation and Usage
 
-### Console Tool code
-
-Copy the "Console Tool" to any directory on your computer.
-
-### Install dependencies 
-
-To install the PHP SDK from the [Central Composer repository](https://packagist.org) use [composer](https://getcomposer.org/download):
+To install the dependencies run:
 ```bash
 composer install
 ```
 
 ### Run console
 
-To show available commands for the console use command:
+To get usage information run:
 ```bash
 ./c-tool
 ```
-
 You can use availabe command for **c-tool**:
 ```bash
 ./c-tool help
@@ -42,11 +35,11 @@ You can use availabe command for **c-tool**:
 ```
 ### Build an independent running script
 
-You can build an independent script and use it every location on your or another computer:
+You can build a single executable script:
 ```bash
 composer build
 ```
-After that, you can find an independent script in folder **./bin/c-tool.phar** and use it independently from composer or project code sources.
+After that you can find the script in the bin folder *./bin/c-tool.phar*
 
 ## Testing
 
@@ -54,7 +47,7 @@ After that, you can find an independent script in folder **./bin/c-tool.phar** a
 
 Use PHPUnit to run all console tools tests:
 ```bash
-./vendor/bin/phpunit tests/
+composer test
 
 PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
 
@@ -65,19 +58,6 @@ Time: 55 ms, Memory: 4.00MB
 OK (6 tests, 11 assertions)
 ```
 
-Or you can run just one console tools test you want:
-```bash
-./vendor/bin/phpunit tests/Console/ConsoleWorkerTest.php
-
-PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
-
-..                                                                  2 / 2 (100%)
-
-Time: 52 ms, Memory: 4.00MB
-
-OK (2 tests, 4 assertions)
-```
-
 # Troubleshooting
 
 ## Unable to start console tool
@@ -86,7 +66,7 @@ OK (2 tests, 4 assertions)
 
 You get a "permission denided" message
 ```bash
-$ ./c-tool quit
+$ ./c-tool math
 permission denied: ./c-tool
 ```
 

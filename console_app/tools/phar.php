@@ -31,12 +31,11 @@ $p->addFile($rootDir . '/vendor/composer/autoload_psr4.php');
 $p->addFile($rootDir . '/vendor/composer/autoload_classmap.php');
 $p->addFile($rootDir . '/vendor/symfony/polyfill-ctype/bootstrap.php');
 $p->addFile($rootDir . '/vendor/myclabs/deep-copy/src/DeepCopy/deep_copy.php');
-$p->addFile($rootDir . '/src/ConsoleTool/Console/ConsoleWorker.php');
+$p->addFile($rootDir . '/src/ConsoleTool/Console/SalaryCli.php');
 $p->addFile($rootDir . '/src/ConsoleTool/Console/AConsole.php');
 $p->addFile($rootDir . '/src/ConsoleTool/Exceptions/CommandException.php');
 $p->addFile($rootDir . '/src/ConsoleTool/Command/ACommand.php');
 $p->addFile($rootDir . '/src/ConsoleTool/Command/Help.php');
-$p->addFile($rootDir . '/src/ConsoleTool/Command/Quit.php');
 $p->addFile($rootDir . '/src/ConsoleTool/Command/Salary.php');
 
 $stub = "#!/usr/bin/php \n" . $defaultStub;
