@@ -41,7 +41,7 @@ abstract class ACommand
      *
      * @param array $params array of arguments passed to script.
      */
-    function __construct($params = [])
+    public function __construct($params = [])
     {
         $this->_params = $params;
     }

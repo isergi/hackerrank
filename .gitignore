@@ -1,3 +1,4 @@
 .vscode
 console_app/vendor/
 console_app/composer.lock
+.php_cs.cache

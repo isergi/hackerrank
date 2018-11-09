@@ -61,7 +61,7 @@ abstract class AConsole
      * @param array $args array of arguments passed to script
      *
      * @return void
-     * 
+     *
      * @throws CommandException if command not found
      */
     public function init($args)
