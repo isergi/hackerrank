@@ -5,10 +5,10 @@ define('BASE_DIR', __DIR__);
 
 require_once 'vendor/autoload.php';     
 
-use ConsoleTool\Console\SalaryCli;
+use ConsoleTool\Console\SimpleCli;
 use ConsoleTool\Exceptions\CommandException;
 
-$console = new SalaryCli();
+$console = new SimpleCli();
 
 try {
     $console->init(array_slice($argv, 1));
