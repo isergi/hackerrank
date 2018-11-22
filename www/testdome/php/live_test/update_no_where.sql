@@ -5,4 +5,4 @@ JOIN
 ON 
     p.a = 11
 SET 
-    t.b = t.b+1 ;
+    p.b = p.b+1 ;
