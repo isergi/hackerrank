@@ -1,7 +1,7 @@
 <?php
 /*
-Please take a look at the piece of code. 
-We've got a class Fight, which implements a logic of a fight between two heroes. 
+Please take a look at the piece of code.
+We've got a class Fight, which implements a logic of a fight between two heroes.
 After the fight one of the hero may lose some health points.
 Please make an implementation of a test for Fight::makeFight() method.
 
@@ -55,18 +55,17 @@ Feel free to refactor a code if you think it's needed.
 
     // public function testMakeFight()
     // {
-      // implement the test   
+      // implement the test
     // }
 // }
 
 /*
- * Unfortunately, I have no any information about the test platform and about fixtures and etc. 
+ * Unfortunately, I have no any information about the test platform and about fixtures and etc.
  * So anyway I just made some minor code changes and wrote some quick test case for the fight.
  */
 
 interface HeroInterface
 {
-
     public function getForce(): int;
 
     public function getImmunity(): int;
@@ -76,41 +75,45 @@ interface HeroInterface
     public function setHealthPoints(int $healthPoints);
 }
 
-abstract class HeroBase  implements HeroInterface{
-
+abstract class HeroBase implements HeroInterface
+{
     private $immunity;
     private $health;
 
-    public function __construct(int $health, int $force, int $immunity = 0) {
+    public function __construct(int $health, int $force, int $immunity = 0)
+    {
         $this->force = $force;
         $this->immunity = $immunity;
         $this->setHealthPoints($health);
     }
 
-    public function getForce(): int {
+    public function getForce(): int
+    {
         return (int) $this->force;
     }
 
-    public function getImmunity(): int {
+    public function getImmunity(): int
+    {
         return (int) $this->immunity;
     }
 
-    public function getHealthPoints(): int {
+    public function getHealthPoints(): int
+    {
         return (int) $this->health;
     }
 
-    public function setHealthPoints(int $healthPoints) {
+    public function setHealthPoints(int $healthPoints)
+    {
         $this->health = $healthPoints;
     }
 }
 
-class Hero extends HeroBase {
-
+class Hero extends HeroBase
+{
 }
 
 class DamageHelper
 {
-
     public static function getDamage(HeroInterface $attacker, HeroInterface $defender)
     {
         $damage = 0;
@@ -124,10 +127,8 @@ class DamageHelper
 
 class Fight
 {
-
     public function makeFight(HeroInterface $hero1, HeroInterface $hero2)
     {
-
         if (mt_rand(0, 1)) {
             $attacker = $hero1;
             $defender = $hero2;
@@ -141,8 +142,8 @@ class Fight
     }
 }
 
-class FightTest extends TestCase {
-
+class FightTest extends TestCase
+{
     public function testMakeFight()
     {
         $fight = new Fight();

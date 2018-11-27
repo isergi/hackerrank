@@ -2,7 +2,7 @@
 
 /*
 
-The user interface contains two types of user input controls: 
+The user interface contains two types of user input controls:
 TextInput, which accepts all texts and NumericInput, which accepts only digits.
 
 Implement the class TextInput that contains:
@@ -27,18 +27,21 @@ class TextInput
 {
     private $text = '';
 
-    public function add($newValue) {
+    public function add($newValue)
+    {
         $this->text .= $newValue;
     }
 
-    public function getValue() {
+    public function getValue()
+    {
         return $this->text;
     }
 }
 
 class NumericInput extends TextInput
 {
-    public function add($newValue) {
+    public function add($newValue)
+    {
         if (is_numeric($newValue)) {
             parent::add($newValue);
         }

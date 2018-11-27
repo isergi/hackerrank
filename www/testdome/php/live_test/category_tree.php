@@ -2,7 +2,6 @@
 
 class CategoryTree
 {
-
     private $categories = [];
 
     public function addCategory($category, $parent)
@@ -17,7 +16,7 @@ class CategoryTree
 
         if (!is_null($parent)) {
             $this->categories[ $parent ][] = $category;
-        }    
+        }
         $this->categories[ $category ] = [];
     }
     

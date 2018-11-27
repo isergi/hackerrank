@@ -2,8 +2,8 @@
 
 /*
 
-The LeagueTable class tracks the score of each player in a league. 
-After each game, the player records their score with the recordResult function. 
+The LeagueTable class tracks the score of each player in a league.
+After each game, the player records their score with the recordResult function.
 
 The player's rank in the league is calculated using the following logic:
 
@@ -20,30 +20,28 @@ $table->recordResult('Mike', 3);
 $table->recordResult('Arnold', 5);
 $table->recordResult('Chris', 5);
 echo $table->playerRank(1);
-All players have the same score. However, Arnold and Chris have played fewer games than Mike, 
+All players have the same score. However, Arnold and Chris have played fewer games than Mike,
 and as Chris is before Arnold in the list of players, he is ranked first. Therefore, the code above should display "Chris".
 
 */
 
 class LeagueTable
 {
-	public function __construct($players)
+    public function __construct($players)
     {
         $this->standings = array();
         $this->ranks = [];
-		foreach($players as $index => $p)
-        {
-			$this->standings[$p] = array
-            (
+        foreach ($players as $index => $p) {
+            $this->standings[$p] = array(
                 'index' => $index,
-                'games_played' => 0, 
+                'games_played' => 0,
                 'score' => 0
             );
         }
-	}
+    }
     
-    public function calculatePlayersRanks($compare1, $compare2) {
-
+    public function calculatePlayersRanks($compare1, $compare2)
+    {
         if ($compare1['score'] == $compare2['score']) {
             if ($compare1['games'] == $compare2['games']) {
                 $totalRank = $compare1['index'] - $compare2['index'];
@@ -56,14 +54,14 @@ class LeagueTable
 
         return $totalRank;
     }
-		
-	public function recordResult($player, $score)
+        
+    public function recordResult($player, $score)
     {
-		$this->standings[$player]['games_played']++;
-		$this->standings[$player]['score'] += $score;
-	}
-	
-	public function playerRank($rank)
+        $this->standings[$player]['games_played']++;
+        $this->standings[$player]['score'] += $score;
+    }
+    
+    public function playerRank($rank)
     {
         $result = null;
         $this->ranks = [];
@@ -82,7 +80,7 @@ class LeagueTable
             $result = $this->ranks[$rank-1]['name'];
         }
         return $result;
-	}
+    }
 }
       
 $table = new LeagueTable(array('Mike', 'Chris', 'Arnold'));

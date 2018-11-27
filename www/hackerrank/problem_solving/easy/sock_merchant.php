@@ -1,7 +1,7 @@
 <?php
 
-function sockMerchant($n, $ar) {
-
+function sockMerchant($n, $ar)
+{
     $pairsCount = 0;
     $pairs = [];
     foreach ($ar as $k => $color) {

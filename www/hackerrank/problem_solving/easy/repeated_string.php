@@ -1,6 +1,7 @@
 <?php
 
-function repeatedString($s, $n) {
+function repeatedString($s, $n)
+{
     $strLen = strlen($s);
     $countInStr = 0;
     $sPosCounters = [];
@@ -21,7 +22,8 @@ function repeatedString($s, $n) {
 }
 
 echo '<pre>';
-print_r([
+print_r(
+    [
     'aba, 10'        => repeatedString('aba', 10),        // Expected 7
     'a, 10000000000' => repeatedString('a', 10000000000), // Expected 10000000000
     'qwajaas, 10000' => repeatedString('qwajaas', 10000), // Expected 4285

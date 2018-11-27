@@ -1,30 +1,31 @@
 <?php
 
 // Complete the arrayManipulation function below.
-function arrayManipulation($n, $queries) {
-  $result = [];
-  foreach ($queries as $query) {
-      if (!isset($result[$query[0]])) {
-          $result[$query[0]] = 0;
-      }
-      if (!isset($result[$query[1]+1])) {
-        $result[$query[1]+1] = 0;
-      }
-      $result[$query[0]] += $query[2];
-      $result[$query[1]+1] -= $query[2];
-  }
+function arrayManipulation($n, $queries)
+{
+    $result = [];
+    foreach ($queries as $query) {
+        if (!isset($result[$query[0]])) {
+            $result[$query[0]] = 0;
+        }
+        if (!isset($result[$query[1]+1])) {
+            $result[$query[1]+1] = 0;
+        }
+        $result[$query[0]] += $query[2];
+        $result[$query[1]+1] -= $query[2];
+    }
 
-  ksort($result);
-  $sum = 0;
-  $max = 0;
-  foreach ($result as $count) {
-      $sum += $count;
-      if ($max < $sum) {
-        $max = $sum;
-      }
-  }
+    ksort($result);
+    $sum = 0;
+    $max = 0;
+    foreach ($result as $count) {
+        $sum += $count;
+        if ($max < $sum) {
+            $max = $sum;
+        }
+    }
 
-  return $max;
+    return $max;
 }
 
 echo '<pre>';

@@ -1,7 +1,8 @@
 <?php
 
 // Complete the twoStrings function below.
-function twoStrings($s1, $s2) {
+function twoStrings($s1, $s2)
+{
     $s1Hash = str_split($s1);
     $s2Hash = str_split($s2);
 

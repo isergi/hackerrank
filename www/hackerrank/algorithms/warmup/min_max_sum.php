@@ -1,13 +1,13 @@
 <?php
 
 // Complete the miniMaxSum function below.
-function miniMaxSum($arr) {
-
+function miniMaxSum($arr)
+{
     $min = min($arr);
     $max = max($arr);
     $totalSumm = array_sum($arr);
     
-    /* 
+    /*
         $totalSumm = 0;
         $min = $max = $arr[0];
         foreach ($arr as $v) {
@@ -23,7 +23,7 @@ function miniMaxSum($arr) {
 
     //return ($totalSumm - $min) . ' ' . ($totalSumm - $max);
 
-    echo ($totalSumm - $min), ' ', ($totalSumm - $max);
+    echo($totalSumm - $min), ' ', ($totalSumm - $max);
 }
 
 

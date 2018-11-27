@@ -27,7 +27,7 @@ class Path
     const PATH_DELIMITER = '/';
     public $currentPath;
 
-    function __construct($path)
+    public function __construct($path)
     {
         $this->currentPath = $path;
     }
@@ -46,13 +46,13 @@ class Path
         foreach ($commandList as $k => $command) {
             if (preg_match('/[a-zA-Z\.]/', $command)) {
                 switch ($command) {
-                    case '..' :
+                    case '..':
                         $i--;
                         $currentPath = array_slice($currentPath, 0, $i+1);
                     break;
-                    default :
+                    default:
                         $i++;
-                        $currentPath[$i] = $command;                        
+                        $currentPath[$i] = $command;
                     break;
                 }
             }

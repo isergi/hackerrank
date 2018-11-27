@@ -1,8 +1,8 @@
 <?php
 
 // Complete the checkMagazine function below.
-function countTriplets($arr, $r)  {
-
+function countTriplets($arr, $r)
+{
     $totalTriplets = 0;
     $arrayLength = sizeOf($arr);
 
@@ -15,8 +15,8 @@ function countTriplets($arr, $r)  {
             $used[ $arr[$i] ] = 0;
         }
         if (isset($valuesCounts[ $arr[$i]*$r ]) && isset($valuesCounts[ $arr[$i]/$r ])) {
-			$totalTriplets += $valuesCounts[ $arr[$i]*$r ] * $used[ $arr[$i]/$r ];
-		}
+            $totalTriplets += $valuesCounts[ $arr[$i]*$r ] * $used[ $arr[$i]/$r ];
+        }
         $used[ $arr[$i] ]++;
     }
 
@@ -32,4 +32,3 @@ print_r([
       '[1,1,1,1], 1' => countTriplets([1,1,1,1,1,1,1,1,1,1,], 1),    // Expected 120
 ]);
 echo '</pre>';
-

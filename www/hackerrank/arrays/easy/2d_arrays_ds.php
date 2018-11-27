@@ -1,7 +1,7 @@
 <?php
 
-function hourglassSum($arr) {
-
+function hourglassSum($arr)
+{
     $current = $max = -63;
     for ($i=1; $i<5; $i++) {
         for ($j=1; $j<5; $j++) {

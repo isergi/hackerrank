@@ -2,11 +2,11 @@
 
 /*
 
-A thesaurus contains words and synonyms for each word. 
+A thesaurus contains words and synonyms for each word.
 Below is an example of a data structure that defines a thesaurus:
 
 array("buy" => array("purchase"), "big" => array("great", "large"))
-Implement the function getSynonyms, which accepts a word as a string and returns all synonyms for that word in JSON format, 
+Implement the function getSynonyms, which accepts a word as a string and returns all synonyms for that word in JSON format,
 as in the example below.
 
 For example, the call $thesaurus->getSynonyms("big") should return:
@@ -22,7 +22,7 @@ class Thesaurus
 {
     private $thesaurus;
 
-    function Thesaurus($thesaurus)
+    public function Thesaurus($thesaurus)
     {
         $this->thesaurus = $thesaurus;
     }
@@ -30,7 +30,7 @@ class Thesaurus
     public function getSynonyms($word)
     {
         $result = [
-            'word' => $word, 
+            'word' => $word,
             'synonyms' => []
         ];
         if (isset($this->thesaurus[ $word ])) {
@@ -41,11 +41,11 @@ class Thesaurus
 }
 
 $thesaurus = new Thesaurus(
-    array 
-        (
+    array(
             "buy" => array("purchase"),
             "big" => array("great", "large")
-        )); 
+        )
+);
 
 echo $thesaurus->getSynonyms("big");
 echo "\n";

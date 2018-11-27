@@ -71,32 +71,34 @@
 // Note: you are allowed (and encouraged) to change anything in the existing code in order to make an implementation SOLID compliant
 
 /**
- * 
+ *
  * In this case I also have no chance to get the requirements, so I will use my own.
- * 
+ *
  * PHP7.
- * 
+ *
  */
 
 /**
- * 
+ *
  * In this case I also have no chance to get the requirements, so I will use my own.
- * 
+ *
  * PHP7.
- * 
+ *
  */
-interface IBreakable  {
+interface IBreakable
+{
     public function isBroken(): bool;
 }
-interface IPaintDamageable {
+interface IPaintDamageable
+{
     public function isPaintingDamaged(): bool;
 }
 
 /**
  * @implements IBreakable
  */
-abstract class CarDetail implements IBreakable {
-
+abstract class CarDetail implements IBreakable
+{
     private $isBroken;
 
     public function __construct(bool $isBroken)
@@ -114,8 +116,8 @@ abstract class CarDetail implements IBreakable {
  * @extends CarDetail
  * @implements IPaintDamageable
  */
-abstract class CarPaintedDetail extends CarDetail implements IPaintDamageable {
-
+abstract class CarPaintedDetail extends CarDetail implements IPaintDamageable
+{
     private $isPaintingDamaged;
 
     public function __construct(bool $isBroken, $isPaintingDamaged)
@@ -140,7 +142,7 @@ class Tyre extends CarDetail
 
 /*
  * Class Door.
- * 
+ *
  */
 class Door extends CarPaintedDetail
 {
@@ -148,7 +150,7 @@ class Door extends CarPaintedDetail
 
 /**
  * Car class.
- * 
+ *
  * @property string $details
  */
 class Car
@@ -170,7 +172,6 @@ class Car
     public function isBroken(): bool
     {
         foreach ($this->details as $detail) {
-
             if ($detail instanceof IBreakable && $detail->isBroken()) {
                 return true;
             }
@@ -182,7 +183,6 @@ class Car
     public function isPaintingDamaged(): bool
     {
         foreach ($this->details as $detail) {
-
             if ($detail instanceof IPaintDamageable && $detail->isPaintingDamaged()) {
                 return true;
             }
@@ -195,12 +195,3 @@ class Car
 $car = new Car([new Door(false, true), new Tyre(false)]);
 
 print_r([$car->isBroken(), $car->isPaintingDamaged()]);
-
-
-
-
-
-
-
-
-

@@ -1,8 +1,8 @@
 <?php
 
 // Complete the checkMagazine function below.
-function checkMagazine($magazine, $note) {
-
+function checkMagazine($magazine, $note)
+{
     $magazineDictonary   = array_count_values(explode(' ', $magazine));
     $noteDictonary       = array_count_values(explode(' ', $note));
     
@@ -30,4 +30,3 @@ print_r([
      ive got some coconuts' => checkMagazine('ive got a lovely bunch of coconuts', 'ive got some coconuts'), // Expected NO
 ]);
 echo '</pre>';
-

@@ -1,6 +1,7 @@
 <?php
 
-function rotLeft($a, $d) {
+function rotLeft($a, $d)
+{
     $a1  = array_slice($a, 0, $d);
     $a2  = array_slice($a, $d, sizeOf($a));
     $a   = array_merge($a2, $a1);

@@ -1,7 +1,8 @@
 <?php
 
 // Complete the minimumBribes function below.
-function minimumBribes($q) {
+function minimumBribes($q)
+{
     $stepsCount = 0;
     $bribesCounts = [];
     $arrayLength = sizeOf($q)-1;

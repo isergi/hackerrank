@@ -1,7 +1,7 @@
 <?php
 
-function countingValleys($n, $s) {
-
+function countingValleys($n, $s)
+{
     $strLen = strlen($s)-1;
     $startPos = 0;
     $valleys = 0;

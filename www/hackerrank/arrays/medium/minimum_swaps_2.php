@@ -1,18 +1,22 @@
 <?php
 
-class SwapCounter {
+class SwapCounter
+{
     private $_swaps = 0;
     private $_array = [];
 
-    public function __construct($array) {
+    public function __construct($array)
+    {
         $this->_array = $array;
     }
 
-    public function getSwaps() {
+    public function getSwaps()
+    {
         return $this->_swaps;
     }
 
-    public function counSwaps() {
+    public function counSwaps()
+    {
         $perRound = 500;
         do {
             $sorted = $this->_array;
@@ -32,12 +36,12 @@ class SwapCounter {
             }
 
             $this->_array = array_slice($this->_array, $perRound);
-
         } while (sizeOf($this->_array) > $perRound);
     }
 }
 // Complete the minimumSwaps function below.
-function minimumSwaps($arr) {
+function minimumSwaps($arr)
+{
     $swapCounter = new SwapCounter($arr);
     $swapCounter->counSwaps();
     return $swapCounter->getSwaps();

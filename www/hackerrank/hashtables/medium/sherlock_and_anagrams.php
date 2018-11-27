@@ -1,8 +1,8 @@
 <?php
 
 // Complete the checkMagazine function below.
-function sherlockAndAnagrams($s) {
-
+function sherlockAndAnagrams($s)
+{
     $totalCount = 0;
     $strLength = strlen($s);
     $currentStr = str_split($s);
@@ -19,7 +19,6 @@ function sherlockAndAnagrams($s) {
     }
 
     return $totalCount;
-
 }
 
 echo '<pre>';
@@ -31,4 +30,3 @@ print_r([
     'cdcd'           => sherlockAndAnagrams('cdcd'),         // Expected 5
 ]);
 echo '</pre>';
-

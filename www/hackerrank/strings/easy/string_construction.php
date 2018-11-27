@@ -1,7 +1,8 @@
 <?php
 
 // Complete the twoStrings function below.
-function stringConstruction($s) {
+function stringConstruction($s)
+{
     return (sizeOf(array_unique(str_split($s))));
 }
 
