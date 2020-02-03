@@ -1,0 +1,26 @@
+{
+	"name": "sergey-pavlov/sitemap-tool",
+	"type": "library",
+	"description": "A simple tool for generating a sitemap file",
+	"version": "1.0.0",
+	"authors": [{
+		"name": "Sergey Pavlov",
+		"email": "isergi.ru@gmail.com"
+	}],
+	"scripts": {
+		"test": "./vendor/bin/phpunit tests/"
+	},
+	"require": {
+		"php": ">=5.6.0",
+		"nategood/commando": "*",
+		"phpmailer/phpmailer": "~6.1"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^5.7"
+	},
+	"autoload": {
+		"psr-4": {
+			"SitemapTool\\": "./src/SitemapTool/"
+		}
+	}
+}

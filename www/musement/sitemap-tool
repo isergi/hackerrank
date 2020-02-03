@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+
+define('BASE_DIR', __DIR__);
+
+require_once 'vendor/autoload.php';
+
+use SitemapTool\Exceptions\SenderException;
+use SitemapTool\Exceptions\GeneratorException;
+use SitemapTool\Generator\Musement;
+use SitemapTool\Sender\Mailer;
+use SitemapTool\Tool\Tool;
+use SitemapTool\Cli\Console;
+
+$cli = new Console();
+
+// Read argv params
+$fileName    = $cli['file'];
+$isGenerate  = $cli['generate'];
+$emails      = $cli['emails'];
+$locale      = $cli['locale'] ?? 'it-IT';
+
+$tool = new Tool($fileName);
+
+// Generate a new sitemap file if necessary
+if ($isGenerate) {
+    try {
+        $tool->generate(new Musement($locale));
+    } catch (GeneratorException $e){
+        $cli->error($e);
+    }
+}
+
+// Send the sitemap file via Email
+if (!empty($emails)) {
+    $mailerConfig = json_decode(file_get_contents(BASE_DIR . '/config/smtp.config.json'), true);
+    $emails = explode(',', $emails);
+    try {
+        $tool->send(new Mailer(), $emails, $mailerConfig);
+    } catch (SenderException $e){
+        $cli->error($e);
+    }
+}

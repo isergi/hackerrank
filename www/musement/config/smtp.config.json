@@ -1,0 +1,9 @@
+{
+    "smtp" : false,
+    "host" : "smtp1.example.com",
+    "auth" : true,
+    "username" : "user@example.com",
+    "password" : "secret",
+    "port" : 587,
+    "from" : "noreply@example.com"
+}
