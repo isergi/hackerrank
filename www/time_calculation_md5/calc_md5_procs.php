@@ -1,5 +1,6 @@
 <?php
 
+// Only Proc part
 if (!empty($argv[1]) && !empty($argv[2]) && !empty($argv[3]) && ($argv[3] == 'is_fork')) {
 	$start = $argv[1];
 	$end = $argv[2];
@@ -18,8 +19,11 @@ if (!empty($argv[1]) && !empty($argv[2]) && !empty($argv[3]) && ($argv[3] == 'is
 	exit;
 }
 
+// Proc splitting part
 define('PROCS_COUNT', 4);
 define('COUNT_NUMBERS', 1000000);
+
+echo PHP_EOL;
 
 $procCountParts = ceil(COUNT_NUMBERS / PROCS_COUNT);
 
@@ -40,25 +44,23 @@ $start = microtime(true);
 $procs = [];
 
 for ($procsCounter = PROCS_COUNT; $procsCounter > 0; $procsCounter--) {
-	$procs[ $procsCounter ] = proc_open('php ' . __DIR__ . DIRECTORY_SEPARATOR . 'calc_md5_procs.php ' . $pars_numbers[ $procsCounter-1 ]['start'] . ' ' . $pars_numbers[ $procsCounter-1 ]['end'] . ' is_fork', $descriptorspec, $pipes, NULL, $_ENV);
+	$procs[ $procsCounter ] = proc_open('php ' . __FILE__ . ' ' . $pars_numbers[ $procsCounter-1 ]['start'] . ' ' . $pars_numbers[ $procsCounter-1 ]['end'] . ' is_fork', $descriptorspec, $pipes, NULL, $_ENV);
 }
 
-while (!empty($procs)) {
+do {
+	$_k = 0;
 	foreach ($procs as $k => $v) {
 		$pstatus = proc_get_status($procs[ $k ]);
 		if (!$pstatus['running']) {
-			unset($procs[ $k ]);
+			$_k++;
 		}
 	}
-}
+} while ($_k < PROCS_COUNT);
 
 $finish = microtime(true);
 
 $delta = ($finish - $start) * 1000;
 
-echo 'counted ', COUNT_NUMBERS, ' items for ', $delta . ' ms';
-
-
-
+echo PHP_EOL, ' Counted ', COUNT_NUMBERS, ' items for ', $delta . ' ms';
 
 ?>
