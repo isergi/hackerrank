@@ -42,20 +42,19 @@ $descriptorspec = array(
 
 $start = microtime(true);
 $procs = [];
-
 for ($procsCounter = PROCS_COUNT; $procsCounter > 0; $procsCounter--) {
 	$procs[ $procsCounter ] = proc_open('php ' . __FILE__ . ' ' . $pars_numbers[ $procsCounter-1 ]['start'] . ' ' . $pars_numbers[ $procsCounter-1 ]['end'] . ' is_fork', $descriptorspec, $pipes, NULL, $_ENV);
 }
 
+// Check proc statuses
+$current_check_proc = array_shift($procs);
 do {
-	$_k = 0;
-	foreach ($procs as $k => $v) {
-		$pstatus = proc_get_status($procs[ $k ]);
-		if (!$pstatus['running']) {
-			$_k++;
-		}
+	$pstatus = proc_get_status($current_check_proc);
+	if ($pstatus['running']) {
+		continue;
 	}
-} while ($_k < PROCS_COUNT);
+	$current_check_proc = array_shift($procs);
+} while(!empty($procs));
 
 $finish = microtime(true);
 
